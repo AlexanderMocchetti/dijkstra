@@ -1,4 +1,3 @@
-import java.util.Comparator;
 import java.util.TreeMap;
 
 public class Node {
@@ -6,7 +5,6 @@ public class Node {
     private int weight = Integer.MAX_VALUE;
     private TreeMap<Node, Integer> links;
     private Node prev = null;
-
     public Node(String label){
         this.label = label;
         links = new TreeMap<>((a, b) -> a.label.compareTo(b.label));
@@ -18,9 +16,10 @@ public class Node {
     public int weightTo(Node node){
         return weight + links.get(node);
     }
+
     public String getPath(){
         String weight = "";
-        if (this.weight < MAX_VALUE)
+        if (this.weight < Integer.MAX_VALUE)
             weight += this.weight;
         else
             weight = "inf";
@@ -30,5 +29,36 @@ public class Node {
         }
         return out;
     }
-    Comparator<Node> comparator = (o1, o2) -> o1.weight - o2.weight;
+
+    public String getLabel() {
+        return label;
+    }
+
+    public int getWeight() {
+        return weight;
+    }
+
+    public TreeMap<Node, Integer> getLinks() {
+        return links;
+    }
+
+    public Node getPrev() {
+        return prev;
+    }
+
+    public void setLabel(String label) {
+        this.label = label;
+    }
+
+    public void setWeight(int weight) {
+        this.weight = weight;
+    }
+
+    public void setLinks(TreeMap<Node, Integer> links) {
+        this.links = links;
+    }
+
+    public void setPrev(Node prev) {
+        this.prev = prev;
+    }
 }
