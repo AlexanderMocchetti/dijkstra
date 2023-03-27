@@ -18,6 +18,9 @@ public class Graph {
     public void removeVertice(String label){
         vertices.remove(label);
     }
+    public Node getVertice(String label){
+        return vertices.get(label);
+    }
 
     public TreeMap<String, Node> getVertices() {
         return vertices;
